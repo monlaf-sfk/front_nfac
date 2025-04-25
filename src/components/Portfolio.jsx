@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Select, InputNumber, Table, Spin, Alert, Popconfirm, message, Typography, Tag } from 'antd';
 import axios from 'axios';
 import numberWithCommas from '../utils';
+import {API_BASE_URL} from "../urls.jsx";
 
 const { Option } = Select;
 const { Text } = Typography;
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+
 const apiClient = axios.create({ baseURL: API_BASE_URL });
 
 const Portfolio = () => {

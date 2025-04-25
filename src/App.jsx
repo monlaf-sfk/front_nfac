@@ -3,12 +3,13 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Spin, Input, Select, List, Avatar, Typography, Alert } from 'antd';
 import axios from 'axios';
 import numberWithCommas from './utils';
+import {API_BASE_URL} from "./urls.jsx";
 const { Search } = Input;
 const { Option } = Select;
 const { Text, Title } = Typography;
 
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api/v1';
+
 
 
 const apiClient = axios.create({
