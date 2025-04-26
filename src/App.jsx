@@ -27,7 +27,7 @@ const App = () => {
   const fetchMarketData = useCallback((currency) => {
     setLoading(true);
     setError(null);
-    apiClient.get(`/cryptocurrencies?vs_currency=${currency}`)
+    apiClient.get(`/api/v1/cryptocurrencies?vs_currency=${currency}`)
       .then(response => {
         const data = response.data || [];
         setAllCurrencies(data);

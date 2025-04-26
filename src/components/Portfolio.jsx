@@ -21,7 +21,7 @@ const Portfolio = () => {
 
     const fetchAvailableCoins = () => {
         setLoadingCoins(true);
-        apiClient.get('/cryptocurrencies?vs_currency=usd')
+        apiClient.get('/api/v1/cryptocurrencies?vs_currency=usd')
             .then(response => {
                 setAvailableCoins(response.data || []);
                 setLoadingCoins(false);
@@ -36,7 +36,7 @@ const Portfolio = () => {
     const fetchPortfolio = () => {
         setLoading(true);
         setError(null);
-        apiClient.get('/portfolio')
+        apiClient.get('/api/v1/portfolio')
             .then(response => {
                 setPortfolio(response.data);
                 setLoading(false);
@@ -56,7 +56,7 @@ const Portfolio = () => {
     const onFinish = (values) => {
         console.log('Adding item:', values);
         setLoading(true);
-        apiClient.post('/portfolio', values)
+        apiClient.post('/api/v1/portfolio', values)
             .then(() => {
                 message.success('Portfolio item added successfully!');
                 form.resetFields();
@@ -71,7 +71,7 @@ const Portfolio = () => {
 
     const handleDelete = (itemId) => {
         setLoading(true);
-        apiClient.delete(`/portfolio/${itemId}`)
+        apiClient.delete(`/api/v1/portfolio/${itemId}`)
             .then(() => {
                 message.success('Portfolio item deleted successfully!');
                 fetchPortfolio();
